@@ -18,6 +18,8 @@ module.exports = {
     backgroundImage: {
       auth: "url('/src/assets/authBg.png')",
       logo: "url('/src/assets/Logo.png')",
+      google: "url('/src/assets/Google.png')",
+      github: "url('/src/assets/GitHub.png')",
     },
     extend: {
       colors: {

@@ -18,7 +18,7 @@ const Register = ({ changeMode }) => {
         <button className="w-full bg-[#5B9BD5] text-white rounded-lg my-2">
           Sign Up
         </button>
-        <p className="text-sm">
+        <p className="text-lg">
           Already have an account?&nbsp;
           <span className="text-blue-500 cursor-pointer" onClick={changeMode}>
             Sign In

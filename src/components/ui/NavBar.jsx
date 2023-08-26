@@ -4,6 +4,18 @@ import ProfileUser from '../../assets/ProfileUser.png';
 import Hamburger from '../../assets/Hamburger.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from '@radix-ui/react-dropdown-menu';
 
 const Navbar = () => {
   const location = useLocation();
@@ -45,12 +57,25 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="md:mr-5 flex flex-row items-center">
-          <h2 className="hidden md:block">Hello, John</h2>
-          <img
-            src={ProfileUser}
-            alt="Profile Icon"
-            className="h-5 ml-10 sm:ml-5"
-          />
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <div className="flex">
+                <h2 className="hidden md:block">Hello, John</h2>
+                <img
+                  src={ProfileUser}
+                  alt="Profile Icon"
+                  className="h-5 ml-10 sm:ml-5"
+                />
+              </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56">
+              <div className="flex border border-black rounded-sm bg-white">
+                <DropdownMenuLabel>
+                  <p className="ml-4 cursor-pointer my-2">Logout</p>
+                </DropdownMenuLabel>
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </div>

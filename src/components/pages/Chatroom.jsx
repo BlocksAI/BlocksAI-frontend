@@ -1,8 +1,8 @@
 import React from 'react';
-import { Input } from '@/components/ui/input';
 import Navbar from '../ui/NavBar';
 import robot from '../../assets/robot.png';
 import User from '../../assets/User.png'
+import { Input } from '../ui/input';
 const Chatroom = () => {
     return (
         <>
@@ -22,16 +22,32 @@ const Chatroom = () => {
                 </div>
                 <div className='flex-grow'>
                     <div className='flex flex-col flex-grow'>
+                        <div className='mt-10'></div>
                         {/*Robot bubble */}
-                        <div className='flex items-center ml-10 mt-10'>
+                        <div className='flex items-center ml-10'>
                             <img src={robot} alt="robot" className='w-16' />
-                            <div className='relative rounded-r-lg rounded-tl-lg bg-slate-900 px-3 text-white'>bubble</div>
+                            <div className='relative rounded-r-lg rounded-tl-lg bg-slate-900 px-3 text-white w-1/3'>Hello, how can I help you?</div>
                         </div>
 
                         {/* User bubble*/}
-                        <div className='flex flex-row-reverse items-center ml-10 mt-10'>
-                            <img src={User} alt="robot" className='w-12' />
-                            <div className='relative rounded-r-lg rounded-tl-lg bg-slate-900 px-3 text-white'>djkfnskjd speech bubble</div>
+                        <div className='flex flex-row-reverse items-center ml-10'>
+                            <img src={User} alt="robot" className='w-10 mr-10' />
+                            <div className='relative rounded-l-lg rounded-tr-lg bg-slate-900 px-3 text-white w-2/4'>Can I upload my report card, and have you identify
+                                areas for improvement?</div>
+                        </div>
+                        {/*Robot bubble */}
+                        <div className='flex items-center ml-10 mt-10'>
+                            <img src={robot} alt="robot" className='w-16' />
+                            <div className='relative rounded-r-lg rounded-tl-lg bg-slate-900 px-3 text-white w-1/3'>Sure, please upload your file(s) here:</div>
+                        </div>
+                        {/* User bubble*/}
+                        <div className='flex flex-row-reverse items-center ml-10'>
+                            <img src={User} alt="robot" className='w-10 mr-10' />
+                            <div className='relative rounded-l-lg rounded-tr-lg bg-slate-900 px-3 text-white w-2/4'>Can you let me know what are some of the topics I
+                                should work on for physics?</div>
+                        </div>
+                        <div className='fixed bottom-10 ml-20 w-4/6'>
+                            <Input className="w-full" />
                         </div>
                     </div>
                 </div>

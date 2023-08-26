@@ -28,7 +28,7 @@ const Navbar = () => {
   }, [location]);
 
   return (
-    <div className="border-b border-black sticky top-0 z-10 bg-white">
+    <div className="border-b border-black sticky top-0 z-10 bg-white w-screen">
       <div className="flex flex-row items-center justify-between h-full px-10">
         <div className="flex flex-row items-center">
           <img
@@ -59,7 +59,7 @@ const Navbar = () => {
         <div className="md:mr-5 flex flex-row items-center">
           <DropdownMenu>
             <DropdownMenuTrigger>
-              <div className="flex">
+              <div className="flex items-center justify-center">
                 <h2 className="hidden md:block">Hello, John</h2>
                 <img
                   src={ProfileUser}

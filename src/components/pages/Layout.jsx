@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
   return (
-    <div className="overflow-x-hidden w-full h-full">
+    <div className="overflow-y-hidden w-full h-full">
       <Navbar />
       <Outlet />
     </div>

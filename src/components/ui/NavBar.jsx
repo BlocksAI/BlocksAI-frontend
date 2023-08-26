@@ -2,16 +2,21 @@ import React, { useEffect } from 'react';
 import Logo from '../../assets/logo.png';
 import ProfileUser from '../../assets/ProfileUser.png';
 import Hamburger from '../../assets/Hamburger.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
   useEffect(() => {
-    console.log(location.pathname);
+    if (location.pathname === '' || location.pathname === '/') {
+      navigate('/chat');
+    }
   }, [location]);
+
   return (
-    <div className="border-b border-black w-full fixed top-0">
+    <div className="border-b border-black sticky top-0 z-10 bg-white">
       <div className="flex flex-row items-center justify-between h-full px-10">
         <div className="flex flex-row items-center">
           <img
@@ -23,7 +28,7 @@ const Navbar = () => {
           <Link
             to="/market"
             className={
-              (location.pathname === '/market' ? 'active' : '') +
+              (location.pathname === '/market' ? 'active ' : '') +
               'mx-5 hidden md:block text-black'
             }
           >
@@ -32,7 +37,7 @@ const Navbar = () => {
           <Link
             to="/chat"
             className={
-              (location.pathname === '/chat' ? 'active' : '') +
+              (location.pathname === '/chat' ? 'active ' : '') +
               'mx-5 hidden md:block text-black'
             }
           >

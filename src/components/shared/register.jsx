@@ -1,19 +1,27 @@
 import React from 'react';
 import Logo from '../../assets/logo.png';
-import { Input } from '@/components/ui/input';
 import RememberMe from './rememberme';
+import { motion as m } from 'framer-motion';
+import InputBox from './inputBox';
 
 const Register = ({ changeMode }) => {
   return (
-    <div className="mr-auto w-1/2 h-full bg-white flex flex-col items-center justify-center">
-      <img src={Logo} alt="Auth Background" className="mb-16" />
-      <form className="px-32 w-full flex flex-col justify-center items-center gap-4">
-        <label className="text-2xl font-bold mr-auto">Email</label>
-        <Input type="email" placeholder="Email" />
-        <label className="text-2xl font-bold mr-auto">Password</label>
-        <Input type="password" placeholder="Password" />
-        <label className="text-2xl font-bold mr-auto">Confirm Password</label>
-        <Input type="password" placeholder="Password" />
+    <m.div
+      className="mr-auto w-1/2 h-full bg-white flex flex-col items-center justify-center"
+      initial={{ x: '100%' }}
+      animate={{ x: '0%' }}
+      transition={{ duration: 0.5 }}
+    >
+      <img src={Logo} alt="Auth Background" className="mb-8" />
+      <m.form
+        className="px-32 w-full flex flex-col justify-center items-center gap-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <InputBox name="Email" type="email" />
+        <InputBox name="Password" type="password" />
+        <InputBox name="Confirm Password" type="password" />
         <RememberMe />
         <button className="w-full bg-[#5B9BD5] text-white rounded-lg my-2">
           Sign Up
@@ -24,8 +32,8 @@ const Register = ({ changeMode }) => {
             Sign In
           </span>
         </p>
-      </form>
-    </div>
+      </m.form>
+    </m.div>
   );
 };
 

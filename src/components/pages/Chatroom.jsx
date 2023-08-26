@@ -6,7 +6,6 @@ import User from '../../assets/User.png'
 const Chatroom = () => {
     return (
         <>
-            <Navbar />
             <div className='h-full w-full flex flex-row'>
                 <div className='bg-slate-900 h-full w-64'>
                     <div className='flex flex-col items-center place-content-center'>
@@ -21,12 +20,20 @@ const Chatroom = () => {
                         </button>
                     </div>
                 </div>
-                <div className='flex flex-col'> 
-                    <div className='flex items-center ml-10 mt-10'>
-                        <img src={robot} alt="robot" className='w-16' />
-                        <div className='relative rounded-r-lg bg-slate-900 px-3 text-white'>djkfnskjd speech bubble</div>
+                <div className='flex-grow'>
+                    <div className='flex flex-col flex-grow'>
+                        {/*Robot bubble */}
+                        <div className='flex items-center ml-10 mt-10'>
+                            <img src={robot} alt="robot" className='w-16' />
+                            <div className='relative rounded-r-lg rounded-tl-lg bg-slate-900 px-3 text-white'>bubble</div>
+                        </div>
+
+                        {/* User bubble*/}
+                        <div className='flex flex-row-reverse items-center ml-10 mt-10'>
+                            <img src={User} alt="robot" className='w-12' />
+                            <div className='relative rounded-r-lg rounded-tl-lg bg-slate-900 px-3 text-white'>djkfnskjd speech bubble</div>
+                        </div>
                     </div>
-                    
                 </div>
             </div>
         </>

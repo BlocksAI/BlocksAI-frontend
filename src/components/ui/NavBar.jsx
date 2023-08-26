@@ -2,11 +2,18 @@ import React, { useEffect } from 'react';
 import Logo from '../../assets/logo.png';
 import ProfileUser from '../../assets/ProfileUser.png';
 import Hamburger from '../../assets/Hamburger.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.pathname === '' || location.pathname === '/') {
+      navigate('/chat');
+    }
+  }, [location]);
 
   return (
     <div className="border-b border-black sticky top-0 z-10 bg-white">

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Marketplace = () => {
   return (
-    <div className="w-screen h-screen bg-white">
+    <div className="w-full h-full bg-white">
       <h1>Marketplace Page</h1>
     </div>
   );

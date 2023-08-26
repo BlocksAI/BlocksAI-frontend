@@ -5,6 +5,7 @@ import Marketplace from './components/pages/Marketplace';
 import Chatroom from './components/pages/Chatroom';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import ErrorPage from './components/pages/Error';
+import Layout from './components/pages/Layout';
 
 function App() {
   const [name, setName] = useState();
@@ -26,8 +27,18 @@ function App() {
           element: <Auth />,
         },
         {
-          path: '/market',
-          element: <Marketplace />,
+          path: '/',
+          element: <Layout />,
+          children: [
+            {
+              path: 'market',
+              element: <Marketplace />,
+            },
+            {
+              path: 'chat',
+              element: <Chatroom />,
+            },
+          ],
         },
       ],
     },

@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../assets/logo.png';
+import Logo from '../../assets/Logo.png';
 import RememberMe from './rememberme';
 import { motion as m } from 'framer-motion';
 import InputBox from './inputBox';

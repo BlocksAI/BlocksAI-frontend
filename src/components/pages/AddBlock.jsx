@@ -3,6 +3,9 @@ import Step1 from '../shared/step1';
 import Step2 from '../shared/step2';
 import Step3 from '../shared/step3';
 import Step4 from '../shared/step4';
+import { createBlock, manufactureBlock } from '../../utils/blocks';
+import { useNavigate } from 'react-router-dom';
+import { useToast } from '@/components/ui/use-toast';
 
 const AddBlock = () => {
   const [step, setStep] = useState(1);
@@ -10,6 +13,9 @@ const AddBlock = () => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [file, setFile] = useState(null);
+
+  const navigate = useNavigate();
+  const { toast } = useToast();
 
   const incrementStep = () => {
     setStep(step + 1);
@@ -19,8 +25,17 @@ const AddBlock = () => {
     setStep(step - 1);
   };
 
-  const submit = () => {
-    console.log('submitted');
+  const submit = async () => {
+    try {
+      await createBlock({ block_name: name, description, category });
+      await manufactureBlock(file);
+      toast({
+        description: 'Block created successfully!',
+      });
+      navigate('/market');
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const renderStep = () => {

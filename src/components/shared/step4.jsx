@@ -43,10 +43,9 @@ const Step4 = ({ decrementStep, submit, file, setFile, name }) => {
         <button
           type="button"
           className={
-            (file === '' ? 'bg-[#686868]' : 'bg-[#333333]') +
-            ' text-white w-24 mt-2'
+            (!file ? 'bg-[#686868]' : 'bg-[#333333]') + ' text-white w-24 mt-2'
           }
-          disabled={file}
+          disabled={!file}
           onClick={() => {
             if (file) {
               submit();

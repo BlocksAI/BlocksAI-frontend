@@ -13,26 +13,27 @@ const MoreButton = () => {
   };
 
   return (
-    <div className="rounded-full text-black fixed bottom-8 right-8 flex items-end justify-center cursor-pointer flex-col gap-4">
+    <div className="text-black fixed bottom-8 right-8 flex items-end justify-center cursor-pointer flex-col gap-4 z-20">
       <div
         className={
-          (open ? '' : 'hidden ') + 'flex items-center justify-center gap-2'
+          (open ? '' : 'hidden ') +
+          'flex items-end gap-2 bg-white rounded-lg p-4 flex-col border border-black'
         }
       >
-        <p>Edit your block</p>
-        <div className="rounded-full bg-[#2C2C2C] w-12 h-12 flex items-center justify-center cursor-pointer">
-          <img src={Edit} alt="edit" className="w-6 h-6" />
+        <div className={'flex items-center justify-center gap-2'}>
+          <p>Edit your block</p>
+          <div className="rounded-full bg-[#2C2C2C] w-12 h-12 flex items-center justify-center cursor-pointer">
+            <img src={Edit} alt="edit" className="w-6 h-6" />
+          </div>
         </div>
-      </div>
-      <div
-        className={
-          (open ? '' : 'hidden ') + 'flex items-center justify-center gap-2'
-        }
-        onClick={navAddBlock}
-      >
-        <p>Add new block</p>
-        <div className="rounded-full bg-[#2C2C2C] w-12 h-12 flex items-center justify-center cursor-pointer">
-          <img src={Add} alt="add" className="w-6 h-6" />
+        <div
+          className={'flex items-center justify-center gap-2'}
+          onClick={navAddBlock}
+        >
+          <p>Add new block</p>
+          <div className="rounded-full bg-[#2C2C2C] w-12 h-12 flex items-center justify-center cursor-pointer">
+            <img src={Add} alt="add" className="w-6 h-6" />
+          </div>
         </div>
       </div>
       <div

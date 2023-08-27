@@ -13,7 +13,7 @@ const Chatroom = () => {
     const { chosen_block } = await blockPicker(prompt);
     const { output } = await chosenBlock(chosen_block, prompt);
     setHistory([...history, { prompt, output }]);
-    e.target.value = '';
+    setPrompt('');
   };
 
   return (

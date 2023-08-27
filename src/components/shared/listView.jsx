@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import LeftArrow from '../../assets/leftArrow.png';
 import RightArrow from '../../assets/rightArrow.png';
-import Confirmation from './confirmation';
 import { subscribeToBlock } from '../../utils/blocks';
 import Block from './block';
 import { useNavigate } from 'react-router-dom';
+import { useToast } from '@/components/ui/use-toast';
 
 const ListView = ({ items, title }) => {
   const [position, setPosition] = useState(0);
@@ -19,15 +19,23 @@ const ListView = ({ items, title }) => {
     );
   };
 
+  const { toast } = useToast();
+
   const navigate = useNavigate();
   const subscribe = async (id) => {
     try {
       await subscribeToBlock(1);
       navigate('/chat');
+      toast({
+        description: 'Subscribed to block!',
+      });
     } catch (err) {
       console.log(err);
       if (err.response.data.error.includes('already subscribed')) {
         navigate('/chat');
+        toast({
+          description: 'Subscribed to block!',
+        });
       }
     }
   };

@@ -23,10 +23,6 @@ const AddBlock = () => {
     console.log('submitted');
   };
 
-  useEffect(() => {
-    console.log(file);
-  }, [file]);
-
   const renderStep = () => {
     switch (step) {
       case 1:
@@ -58,6 +54,7 @@ const AddBlock = () => {
             file={file}
             submit={submit}
             setFile={setFile}
+            name={name}
           />
         );
       default:

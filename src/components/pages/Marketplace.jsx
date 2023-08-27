@@ -13,6 +13,14 @@ const Marketplace = () => {
     { image: faker.image.urlPicsumPhotos(64, 32) },
     { image: faker.image.urlPicsumPhotos(64, 32) },
     { image: faker.image.urlPicsumPhotos(64, 32) },
+    { image: faker.image.urlPicsumPhotos(64, 32) },
+    { image: faker.image.urlPicsumPhotos(64, 32) },
+    { image: faker.image.urlPicsumPhotos(64, 32) },
+    { image: faker.image.urlPicsumPhotos(64, 32) },
+    { image: faker.image.urlPicsumPhotos(64, 32) },
+    { image: faker.image.urlPicsumPhotos(64, 32) },
+    { image: faker.image.urlPicsumPhotos(64, 32) },
+    { image: faker.image.urlPicsumPhotos(64, 32) },
   ];
 
   let fakeData2 = [

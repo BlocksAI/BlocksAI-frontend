@@ -6,7 +6,16 @@ import { Input } from '@/components/ui/input';
 import RememberMe from './rememberme';
 import { motion as m } from 'framer-motion';
 import InputBox from './inputBox';
+import { useNavigate } from 'react-router-dom';
+
 const Login = ({ changeMode }) => {
+  const navigate = useNavigate();
+  const submit = (e) => {
+    e.preventDefault();
+    localStorage.setItem('name', 'John');
+    navigate('/market');
+  };
+
   return (
     <m.div
       className="w-1/2 h-full bg-white flex flex-col items-center justify-center"
@@ -20,6 +29,7 @@ const Login = ({ changeMode }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
+        onSubmit={submit}
       >
         <InputBox type="email" name="Email" />
         <br className="pt-2 m-0" />

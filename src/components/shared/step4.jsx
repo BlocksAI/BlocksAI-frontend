@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import Alert from './alert';
 
-const Step4 = ({ decrementStep, submit, file, setFile }) => {
+const Step4 = ({ decrementStep, submit, file, setFile, name }) => {
   const [open, setOpen] = useState(false);
+  const [msg, setMsg] = useState('');
 
   return (
     <div className="flex flex-col w-1/2">
@@ -16,11 +17,18 @@ const Step4 = ({ decrementStep, submit, file, setFile }) => {
         onChange={(e) => {
           const fileNew = e.target.files[0];
           if (fileNew.name.endsWith('.py')) {
-            setFile(fileNew);
-            console.log(fileNew);
+            const newFile = new File([fileNew], name + '.py');
+
+            // hack to update the selected file
+            const dT = new DataTransfer();
+            dT.items.add(newFile);
+            const input = e.currentTarget;
+            input.files = dT.files;
+            setFile(newFile);
           } else {
             setOpen(true);
             e.target.value = null;
+            setMsg('Please upload a python file!');
           }
         }}
       />
@@ -47,7 +55,7 @@ const Step4 = ({ decrementStep, submit, file, setFile }) => {
         >
           Submit
         </button>
-        <Alert open={open} setOpen={setOpen} />
+        <Alert open={open} setOpen={setOpen} message={msg} />
       </div>
     </div>
   );

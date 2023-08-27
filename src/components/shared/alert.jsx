@@ -10,12 +10,12 @@ import {
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
 
-const Alert = ({ open, setOpen }) => {
+const Alert = ({ open, setOpen, message }) => {
   return (
     <AlertDialog open={open}>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Please upload a python file</AlertDialogTitle>
+          <AlertDialogTitle>{message}</AlertDialogTitle>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogAction

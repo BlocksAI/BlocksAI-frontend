@@ -22,12 +22,12 @@ const categories = [
     label: 'Education',
   },
   {
-    value: 'Healthcare',
-    label: 'Healthcare',
-  },
-  {
     value: 'Environment',
     label: 'Environment',
+  },
+  {
+    value: 'Healthcare',
+    label: 'Healthcare',
   },
 ];
 

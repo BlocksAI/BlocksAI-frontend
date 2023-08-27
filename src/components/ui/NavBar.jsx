@@ -7,25 +7,25 @@ import { useLocation } from 'react-router-dom';
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@radix-ui/react-dropdown-menu';
 
 const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const name = localStorage.getItem('name');
 
   useEffect(() => {
     if (location.pathname === '' || location.pathname === '/') {
       navigate('/chat');
     }
   }, [location]);
+
+  const navAuth = () => {
+    localStorage.removeItem('name');
+    navigate('/auth');
+  };
 
   return (
     <div className="border-b border-black sticky top-0 z-10 bg-white w-screen">
@@ -60,7 +60,7 @@ const Navbar = () => {
           <DropdownMenu>
             <DropdownMenuTrigger>
               <div className="flex items-center justify-center">
-                <h2 className="hidden md:block">Hello, John</h2>
+                <h2 className="hidden md:block">Hello, {name}</h2>
                 <img
                   src={ProfileUser}
                   alt="Profile Icon"
@@ -71,7 +71,9 @@ const Navbar = () => {
             <DropdownMenuContent className="w-56">
               <div className="flex border border-black rounded-sm bg-white">
                 <DropdownMenuLabel>
-                  <p className="ml-4 cursor-pointer my-2">Logout</p>
+                  <p className="ml-4 cursor-pointer my-2" onClick={navAuth}>
+                    Logout
+                  </p>
                 </DropdownMenuLabel>
               </div>
             </DropdownMenuContent>

@@ -13,7 +13,7 @@ const Step2 = ({
       <p className="text-xl my-4">What does your block do?</p>
       <Textarea
         type="text"
-        placeholder="Enter Block Name"
+        placeholder="Enter description here..."
         value={description}
         onChange={(e) => {
           setDescription(e.target.value);

@@ -3,8 +3,16 @@ import Logo from '../../assets/logo.png';
 import RememberMe from './rememberme';
 import { motion as m } from 'framer-motion';
 import InputBox from './inputBox';
+import { useNavigate } from 'react-router-dom';
 
 const Register = ({ changeMode }) => {
+  const navigate = useNavigate();
+  const submit = (e) => {
+    e.preventDefault();
+    localStorage.setItem('name', 'John');
+    navigate('/market');
+  };
+
   return (
     <m.div
       className="mr-auto w-1/2 h-full bg-white flex flex-col items-center justify-center"
@@ -23,7 +31,10 @@ const Register = ({ changeMode }) => {
         <InputBox name="Password" type="password" />
         <InputBox name="Confirm Password" type="password" />
         <RememberMe />
-        <button className="w-full bg-[#5B9BD5] text-white rounded-lg my-2">
+        <button
+          className="w-full bg-[#5B9BD5] text-white rounded-lg my-2"
+          onClick={submit}
+        >
           Sign Up
         </button>
         <p className="text-lg">

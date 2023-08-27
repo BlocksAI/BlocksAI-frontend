@@ -6,6 +6,7 @@ import Chatroom from './components/pages/Chatroom';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import ErrorPage from './components/pages/Error';
 import Layout from './components/pages/Layout';
+import AddBlock from './components/pages/AddBlock';
 
 function App() {
   const [name, setName] = useState();
@@ -37,6 +38,10 @@ function App() {
             {
               path: 'chat',
               element: <Chatroom />,
+            },
+            {
+              path: 'addBlock',
+              element: <AddBlock />,
             },
           ],
         },

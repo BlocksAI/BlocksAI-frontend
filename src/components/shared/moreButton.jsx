@@ -3,9 +3,14 @@ import Ellipsis from '../../assets/ellipsis.png';
 import Add from '../../assets/add.png';
 import Edit from '../../assets/edit.png';
 import Cross from '../../assets/cross.png';
+import { useNavigate } from 'react-router-dom';
 
 const MoreButton = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const navAddBlock = () => {
+    navigate('/addblock');
+  };
 
   return (
     <div className="rounded-full text-black fixed bottom-8 right-8 flex items-end justify-center cursor-pointer flex-col gap-4">
@@ -23,6 +28,7 @@ const MoreButton = () => {
         className={
           (open ? '' : 'hidden ') + 'flex items-center justify-center gap-2'
         }
+        onClick={navAddBlock}
       >
         <p>Add new block</p>
         <div className="rounded-full bg-[#2C2C2C] w-12 h-12 flex items-center justify-center cursor-pointer">

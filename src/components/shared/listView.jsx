@@ -6,11 +6,11 @@ const ListView = ({ items, title }) => {
   const [position, setPosition] = useState(0);
 
   const moveLeft = () => {
-    setPosition(Math.max(0, position - 256 * 5));
+    setPosition(Math.max(0, position - 272));
   };
   const moveRight = () => {
     setPosition(
-      Math.min(position + 256 * 5, 256 * items.length - screen.width)
+      Math.min(position + 272, 272 * items.length - screen.width + 32)
     );
   };
 

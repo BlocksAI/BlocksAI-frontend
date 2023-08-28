@@ -17,4 +17,9 @@ const register = async (username, password) => {
   return response.data;
 };
 
-export { login, register };
+const chatHistory = async (userId) => {
+  const response = await instance.get(`/users/${userId}/chat-history`);
+  return response.data;
+};
+
+export { login, register, chatHistory };

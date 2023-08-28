@@ -65,7 +65,7 @@ const Chatroom = () => {
           ))}
           {isLoading && (
             <div>
-              <div className="flex items-center ml-10 gap-4">
+              <div className="flex items-center ml-10">
                 <img src={robot} alt="robot" className="w-16" />
                 <Skeleton className="relative rounded-r-lg rounded-tl-lg px-3 w-1/3 h-16" />
               </div>

@@ -67,7 +67,14 @@ const Chatroom = () => {
             <div key={index}>
               <MessageRight message={item.prompt} />
               <MessageLeft
-                message={item.output}
+                message={
+                  item.output &&
+                  (item.output.toLowerCase().includes('file') ||
+                    item.output.toLowerCase().includes('upload') ||
+                    item.output.toLowerCase().includes('submit'))
+                    ? 'Please upload a file!'
+                    : item.output
+                }
                 htmlCode={
                   item.output &&
                   (item.output.toLowerCase().includes('file') ||

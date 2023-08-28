@@ -9,10 +9,11 @@ const Marketplace = () => {
 
   useEffect(() => {
     const getBlock = async () => {
-      const blocks = await getBlocks();
+      let blocks = await getBlocks();
       blocks.map((block) => {
         block.image = faker.image.urlPicsumPhotos(64, 32);
       });
+      blocks = blocks.filter((block) => block.block_name !== 'OnlineSearch');
       setNewBlocks(blocks);
     };
     getBlock();
@@ -70,7 +71,7 @@ const Marketplace = () => {
     { image: faker.image.urlPicsumPhotos(64, 32) },
   ];
   return (
-    <div className="w-full h-full overflow-x-hidden">
+    <div className="w-full h-full overflow-x-hidden mt-16">
       <ListView title="New" items={newBlocks} />
       <ListView title="Popular" items={fakeData} />
       <ListView title="Education" items={fakeData2} />

@@ -22,4 +22,11 @@ const chatHistory = async (userId) => {
   return response.data;
 };
 
-export { login, register, chatHistory };
+const uploadFile = async (file) => {
+  const form = new FormData();
+  form.append('user_file', file);
+  const response = await instance.post('/users/file-upload', form);
+  return response.data;
+};
+
+export { login, register, chatHistory, uploadFile };

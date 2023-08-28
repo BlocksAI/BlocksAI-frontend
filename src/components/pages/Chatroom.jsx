@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Input } from '../ui/input';
 import { blockPicker, chosenBlock } from '../../utils/gateway';
 import MessageLeft from '../shared/messageLeft';
@@ -8,6 +8,7 @@ import robot from '../../assets/robot.png';
 import { chatHistory } from '../../utils/auth';
 
 const Chatroom = () => {
+  const messagesEnd = useRef();
   const [prompt, setPrompt] = useState('');
   const [history, setHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -37,6 +38,11 @@ const Chatroom = () => {
     };
     getHistory();
   }, []);
+
+  useEffect(() => {
+    messagesEnd.current.scrollIntoView({ behavior: 'smooth' });
+  }, [history]);
+
   return (
     <div className="h-screen w-screen flex flex-row pt-12">
       <div className="bg-slate-900 h-full w-64">
@@ -60,7 +66,15 @@ const Chatroom = () => {
           {history.map((item, index) => (
             <div key={index}>
               <MessageRight message={item.prompt} />
-              <MessageLeft message={item.output} />
+              <MessageLeft
+                message={item.output}
+                htmlCode={
+                  item.output &&
+                  (item.output.toLowerCase().includes('file') ||
+                    item.output.toLowerCase().includes('upload') ||
+                    item.output.toLowerCase().includes('submit'))
+                }
+              />
             </div>
           ))}
           {isLoading && (
@@ -71,9 +85,9 @@ const Chatroom = () => {
               </div>
             </div>
           )}
-          <div className="h-32 w-1" />
+          <div className="h-32 w-1" ref={messagesEnd} />
         </div>
-        <div className=" mx-auto w-full flex items-center  justify-center">
+        <div className=" mx-auto w-full flex items-center mt-4 justify-center">
           <form
             onSubmit={sendPrompt}
             className="flex items-center justify-center m-0 w-5/6"

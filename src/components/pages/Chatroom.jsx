@@ -38,54 +38,55 @@ const Chatroom = () => {
     getHistory();
   }, []);
   return (
-    <>
-      <div className="h-screen w-screen flex flex-row">
-        <div className="bg-slate-900 h-full w-64">
-          <div className="flex flex-col items-center place-content-center">
-            <button className="bg-slate-900 mt-5 mb-2 w-56 h-10 items-center flex hover:bg-slate-700 focus:outline-none focus:bg-slate-600">
-              <p className="text-white">Chat #1</p>
-            </button>
-            <button className="bg-slate-900 my-2 w-56 h-10 items-center flex hover:bg-slate-700 focus:outline-none">
-              <p className="text-white">Chat #2</p>
-            </button>
-            <button className="bg-slate-900 my-2 w-56 h-10 items-center flex hover:bg-slate-700 focus:outline-none">
-              <p className="text-white">Chat #3</p>
-            </button>
-          </div>
-        </div>
-        <div className="flex justify-center">
-          <div className="flex flex-col flex-grow">
-            <div className="mt-10"></div>
-            {/*Robot bubble */}
-            <MessageLeft message="Hello, how can I help you?" />
-            {history.map((item, index) => (
-              <div key={index}>
-                <MessageRight message={item.prompt} />
-                <MessageLeft message={item.output} />
-              </div>
-            ))}
-            {isLoading && (
-              <div>
-                <div className="flex items-center ml-10 gap-4">
-                  <img src={robot} alt="robot" className="w-16" />
-                  <Skeleton className="relative rounded-r-lg rounded-tl-lg px-3 w-1/3 h-16" />
-                </div>
-              </div>
-            )}
-            <div className="h-32 w-1" />
-          </div>
-          <div className="fixed bottom-10 mx-auto w-4/6">
-            <form onSubmit={sendPrompt}>
-              <Input
-                className="w-full"
-                value={prompt}
-                onChange={(e) => setPrompt(e.target.value)}
-              />
-            </form>
-          </div>
+    <div className="h-screen w-screen flex flex-row pt-12">
+      <div className="bg-slate-900 h-full w-64">
+        <div className="flex flex-col items-center place-content-center">
+          <button className="bg-slate-900 mt-5 mb-2 w-56 h-10 items-center flex hover:bg-slate-700 focus:outline-none focus:bg-slate-600">
+            <p className="text-white">Chat #1</p>
+          </button>
+          <button className="bg-slate-900 my-2 w-56 h-10 items-center flex hover:bg-slate-700 focus:outline-none">
+            <p className="text-white">Chat #2</p>
+          </button>
+          <button className="bg-slate-900 my-2 w-56 h-10 items-center flex hover:bg-slate-700 focus:outline-none">
+            <p className="text-white">Chat #3</p>
+          </button>
         </div>
       </div>
-    </>
+      <div className="flex justify-center flex-col">
+        <div className="flex flex-col h-[90%] overflow-y-scroll">
+          <div className="mt-10"></div>
+          {/*Robot bubble */}
+          <MessageLeft message="Hello, how can I help you?" />
+          {history.map((item, index) => (
+            <div key={index}>
+              <MessageRight message={item.prompt} />
+              <MessageLeft message={item.output} />
+            </div>
+          ))}
+          {isLoading && (
+            <div>
+              <div className="flex items-center ml-10 gap-4">
+                <img src={robot} alt="robot" className="w-16" />
+                <Skeleton className="relative rounded-r-lg rounded-tl-lg px-3 w-1/3 h-16" />
+              </div>
+            </div>
+          )}
+          <div className="h-32 w-1" />
+        </div>
+        <div className=" mx-auto w-full flex items-center  justify-center">
+          <form
+            onSubmit={sendPrompt}
+            className="flex items-center justify-center m-0 w-5/6"
+          >
+            <Input
+              className="w-full"
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
+            />
+          </form>
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -58,7 +58,7 @@ const Chatroom = () => {
           </button>
         </div>
       </div>
-      <div className="flex justify-center flex-col">
+      <div className="flex justify-center flex-col w-full">
         <div className="flex flex-col h-[90%] overflow-y-scroll">
           <div className="mt-10"></div>
           {/*Robot bubble */}

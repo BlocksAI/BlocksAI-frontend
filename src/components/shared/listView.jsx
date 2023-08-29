@@ -24,7 +24,7 @@ const ListView = ({ items, title }) => {
   const navigate = useNavigate();
   const subscribe = async (id) => {
     try {
-      await subscribeToBlock(1);
+      await subscribeToBlock(id);
       navigate('/chat');
       toast({
         description: 'Subscribed to block!',
@@ -62,7 +62,9 @@ const ListView = ({ items, title }) => {
                     key={index}
                     item={item}
                     index={index}
-                    subscribe={subscribe}
+                    subscribe={() => {
+                      subscribe(item.id);
+                    }}
                   />
                 );
               })}

@@ -28,7 +28,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="border-b border-black sticky top-0 z-10 bg-white w-screen">
+    <div className="border-b border-black fixed top-0 z-10 bg-white w-screen">
       <div className="flex flex-row items-center justify-between h-full px-10">
         <div className="flex flex-row items-center">
           <img

@@ -17,4 +17,16 @@ const register = async (username, password) => {
   return response.data;
 };
 
-export { login, register };
+const chatHistory = async (userId) => {
+  const response = await instance.get(`/users/${userId}/chat-history`);
+  return response.data;
+};
+
+const uploadFile = async (file) => {
+  const form = new FormData();
+  form.append('user_file', file);
+  const response = await instance.post('/users/file-upload', form);
+  return response.data;
+};
+
+export { login, register, chatHistory, uploadFile };
